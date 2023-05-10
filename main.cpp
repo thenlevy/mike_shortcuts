@@ -27,7 +27,7 @@ int main() {
     // U 
     // {a[j], j in dist_i, j \notin dist_1, U ... U dist_i}
     //
-    // Actually, we are performing Dijstra's algorithm on the graph without storing the graph,
+    // Actually, we are performing Dijkstra's algorithm on the graph without storing the graph,
     // simply by relying on the fact that we do not need to store the edges since we know what
     // they are: the neighbor of i are i-1 i+1 and a[i].
     long long i = 0;
@@ -41,7 +41,7 @@ int main() {
 
             // try to add x - 1. 
             if (x > 0) {
-                if (dist_to_1[x-1] >= i + 1) { // This test ensures that x-1 \notin dist_1,...dist_i (1)
+                if (dist_to_1[x-1] >= i + 1) { // This test ensures that x-1 \notin dist_1,...dist_i
                     dist_to_1[x-1] = i + 1;
                     at_dist_i_plus_one.emplace(x-1);
                 }
@@ -49,13 +49,13 @@ int main() {
 
             // try to add x + 1
             if (x < n - 1) {
-                if (dist_to_1[x+1] >= i + 1) { // see (1)
+                if (dist_to_1[x+1] >= i + 1) { // This test ensures that x+1 \notin dist_1,...,dist_i
                     dist_to_1[x+1] = i + 1;
                     at_dist_i_plus_one.emplace(x+1);
                 }
             }
 
-            if (dist_to_1[a[x]] >= i + 1) { // see (1)
+            if (dist_to_1[a[x]] >= i + 1) { // This test ensures that a[x] \notin dist_1,..,dist_i
                 dist_to_1[a[x]] = i + 1;
                 at_dist_i_plus_one.emplace(a[x]);
             }
