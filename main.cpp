@@ -27,6 +27,9 @@ int main() {
     // U 
     // {a[j], j in dist_i, j \notin dist_1, U ... U dist_i}
     //
+    // Actually, we are performing Dijstra's algorithm on the graph without storing the graph,
+    // simply by relying on the fact that we do not need to store the edges since we know what
+    // they are: the neighbor of i are i-1 i+1 and a[i].
     long long i = 0;
     unordered_set<long long> at_dist_i = {};
     at_dist_i.emplace(0);
