@@ -33,7 +33,7 @@ int main() {
             //cout << "x = " << x << endl;
             //cout << "try left" << endl;
             if (x > 0) {
-                if (dist_to_1[x-1] > i + 1) {
+                if (dist_to_1[x-1] >= i + 1) {
                     dist_to_1[x-1] = i + 1;
                     at_dist_i_plus_one.emplace(x-1);
                     //cout << "emplace" << x - 1 << endl;
@@ -41,14 +41,14 @@ int main() {
             }
             //cout << "try right" << endl;
             if (x < n - 1) {
-                if (dist_to_1[x+1] > i + 1) {
+                if (dist_to_1[x+1] >= i + 1) {
                     dist_to_1[x+1] = i + 1;
                     at_dist_i_plus_one.emplace(x+1);
                     //cout << "emplace" << x + 1 << endl;
                 }
             }
 
-            if (dist_to_1[a[x]] > i + 1) {
+            if (dist_to_1[a[x]] >= i + 1) {
                 dist_to_1[a[x]] = i + 1;
                 at_dist_i_plus_one.emplace(a[x]);
                 //cout << "emplace" << a[x] << endl;
